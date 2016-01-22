@@ -27,3 +27,9 @@ This is of course preferred to pulling the image directly from the Hub.
 * If you need to run post-install steps, you can add them in postinstall.sh
 
 * Because we pull about 1.6GB of program data, github sometimes starts to rate limit us. Unfortunately, it may do this before we grab composer, which would allow us to set an access token.
+
+# TODO
+
+* Test other install scripts
+
+* Add FTP access for automatic updating

@@ -22,7 +22,7 @@ COPY docker-entrypoint.sh /usr/sbin/docker-entrypoint.sh
 # COPY ssmtp.conf /etc/ssmtp.conf
 
 # Not allowed? Get an access token from https://github.com/blog/1509-personal-api-tokens
-# RUN composer config github-oauth.github.com 2108fb16911d1c94059b8d247cc6ae2350a3a245
+# RUN composer config github-oauth.github.com <token>
 RUN /buildkit/dbconf.sh ; /buildkit/bin/civibuild create civicrm --type $CIVITYPE \
 	--url http://${HOST:-localhost}:80 \
 	--admin-pass ${ADMINPASS:-s3cr3t}

@@ -1,3 +1,4 @@
+
 # civibuild-docker
 Efficient distribution of the CiviCRM buildkit in an Ubuntu 14.04 container.
 
@@ -14,6 +15,8 @@ I have packaged up the CiviCRM buildkit from https://github.com/civicrm/civicrm-
 * Run docker build -t [script-name]
 
 * Run the resulting docker image as normal
+
+* Need to send email from the container? It has been configured with SSMTP -- just drop a working ssmtp.conf file into the image, either at buildtime by using the command "COPY ssmtp.conf /etc/ssmtp.conf" or at run time by using a volume mapper (.e.g -v /etc/ssmtp.conf:/etc/ssmtp.conf:ro) and email will work fine.
 
 This is of course preferred to pulling the image directly from the Hub.
 

@@ -11,7 +11,7 @@ I have packaged up the CiviCRM buildkit from https://github.com/civicrm/civicrm-
 
 * Edit the Dockerfile which your preferred build script (view the available options here: https://github.com/civicrm/civicrm-buildkit/tree/master/app/config)
 
-* Run docker build -t <script-name>
+* Run docker build -t [script-name]
 
 * Run the resulting docker image as normal
 

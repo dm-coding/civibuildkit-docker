@@ -21,3 +21,8 @@ echo "$AMPCONF" > /root/.amp/services.yml
 echo "Include /root/.amp/apache.d/*.conf" >> /etc/apache2/apache2.conf
 
 echo '{ "allow_root": true }' > /root/.bowerrc
+
+git config --global url."https://".insteadOf "git://"
+/buildkit/bin/composer config --global github-protocols https
+
+echo "Finished running pr-configuration, will now install CiviCRM using buildkit buildscript."

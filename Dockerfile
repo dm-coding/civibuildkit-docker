@@ -8,9 +8,8 @@ ENV SITE_NAME "Civi"
 ENV SITE_ID "civi"
 ENV TMPDIR /buildkit/tmp
 
-RUN apt-get update; apt-get install -y curl links ssmtp runit
+RUN apt-get update; apt-get install -y curl links ssmtp
 RUN curl -Ls https://civicrm.org/get-buildkit.sh | bash -s -- --full --dir /buildkit
-# e.g. /buildkit/bin/civibuild create civicrm --type drupal-clean --url http://localhost:80 --admin-pass s3cr3t
 
 COPY dbconf.sh /buildkit
 COPY postinstall.sh /buildkit
@@ -23,9 +22,11 @@ COPY docker-entrypoint.sh /usr/sbin/docker-entrypoint.sh
 
 # Not allowed? Get an access token from https://github.com/blog/1509-personal-api-tokens
 # RUN composer config github-oauth.github.com <token>
+# RUN /buildkit/dbconf.sh ; /buildkit/bin/civibuild create civicrm --type drupal-clean --url http://localhost:80 --admin-pass 123
 RUN /buildkit/dbconf.sh ; /buildkit/bin/civibuild create civicrm --type $CIVITYPE \
 	--url http://${HOST:-localhost}:80 \
 	--admin-pass ${ADMINPASS:-s3cr3t}
+RUN apt-get install -y runit
 RUN /buildkit/postinstall.sh; apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME /buildkit/build

@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -rf /var/www/html
 ln -s /buildkit/build/civicrm /var/www/html
+chown -R www-data:www-data /buildkit/build/civicrm
 
 # DRUPAL (7)
 if [ "$CIVITYPE" = "backdrop-demo" ]; then

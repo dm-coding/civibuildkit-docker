@@ -29,7 +29,7 @@ RUN /buildkit/dbconf.sh ; /buildkit/bin/civibuild create civicrm --type $CIVITYP
 RUN apt-get install -y runit
 RUN /buildkit/postinstall.sh; apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-VOLUME /buildkit/build/civicrm
+VOLUME /var/www/html
 VOLUME /var/lib/mysql
 
 EXPOSE 80

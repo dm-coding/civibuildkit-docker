@@ -1,10 +1,13 @@
-
 # civibuild-docker
 Efficient distribution of the CiviCRM buildkit in an Ubuntu 14.04 container.
 
-As of this initial build-time, there are only two Civi images on the Docker hub, neither of which link to Github repositories of have READMEs, which hardly inspires confidence.
+As of this initial build-time, there are only two Civi images on the Docker hub, neither of which link to Github repositories or have READMEs, which hardly inspires confidence.
 
 I have packaged up the CiviCRM buildkit from https://github.com/civicrm/civicrm-buildkit. This image downloads the buildkit, installs Apache and MySQL, and runs an installation script. The exact script is up to you, but by default the script is Drupal-base, which is the only one which has been tested to date.
+
+It is 'naive' in that it merely runs the buildkit inside a docker container but does not actually conform to any of the docker principles around containability, composerability, automatedness, etc. If you do not wish to develop buildkit inside docker itself, my other container, which installs CiviCRM *using* buildkit in a way which is *docker-aware* may be much more suitable.
+
+You can find that here: https://github.com/djcf/civicrm-docker
 
 # How to
 
